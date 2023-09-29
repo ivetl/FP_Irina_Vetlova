@@ -1,0 +1,121 @@
+/* General Website Style rules */
+
+section {
+    display: block;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  
+  .container {
+    display: block;
+    max-width: 1440px;
+    max-width: 1440px;
+    padding: 0 60px;
+    margin: 0 auto;
+  }
+  
+  .container.-hero {
+    background-color: #FFFAF3;
+    padding: 96px 120px;
+  }
+  
+  ul {
+    text-align: center;
+  }
+  
+  ul li {
+    padding: 40px 3%;
+    display: inline-block;
+    color: #000;
+    font-family: Avenir;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 60px;
+    min-width: 50px;
+  }
+  
+  ul li img {
+    margin-left: -60px;
+    position: absolute;
+  }
+  
+  ul li.active {
+    color: #C08D5D;
+    font-weight: 800;
+  }
+  
+  .hero-text {
+    width: 55%;
+    display: inline-block;
+  }
+  
+  .hero-text h1 {
+    color: #3F4042;
+    font-family: Playfair Display;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 67px;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero-text h2 {
+    color: #3F4042;
+    font-family: Playfair Display;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 93px;
+    letter-spacing: 4.2px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero-text p.-separator {
+    margin-top: 0;
+  }
+  
+  .hero-text p {
+    color: #3F4042;
+    font-family: Avenir;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 26.568px;
+    letter-spacing: 1.08px;
+  }
+  
+  .hero-text p.-actions {
+    padding-top: 66px;
+  }
+  
+  .hero-text .button {
+    border: 2px solid #C08D5D;
+    padding: 17px 15px;
+    color: #3F4042;
+  }
+  
+  section.logo {
+    height: 0;
+    line-height: 0;
+  }
+  
+  .hero-image {
+    width: 50%;
+    margin-left: 50%;
+    display: inline-block;
+    height: 0;
+    position: relative;
+  }
+  
+  .hero-image img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    right: -17%;
+    margin-top: -15%;
+    width: 120%;
+  }
