@@ -9,35 +9,37 @@ section {
   .container {
     display: block;
     max-width: 1440px;
-    max-width: 1440px;
     padding: 0 60px;
     margin: 0 auto;
   }
   
   .container.-hero {
+    --text-color: #3F4042;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
     background-color: #FFFAF3;
-    padding: 96px 120px;
+    padding: 30px 0px;
+    z-index: 1;
   }
   
   ul {
     text-align: center;
+    display: flex;
+    list-style-type: none;
+    gap: 3%;
   }
   
   ul li {
-    padding: 40px 3%;
-    display: inline-block;
+    justify-content: center;
+    align-items: center;
     color: #000;
     font-family: Avenir;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: 60px;
-    min-width: 50px;
-  }
-  
-  ul li img {
-    margin-left: -60px;
-    position: absolute;
+    flex: auto;
   }
   
   ul li.active {
@@ -45,77 +47,95 @@ section {
     font-weight: 800;
   }
   
-  .hero-text {
-    width: 55%;
-    display: inline-block;
+  .cell11 {
+    grid-column-start: 1;
+    grid-row-start: 1;
   }
-  
-  .hero-text h1 {
-    color: #3F4042;
+
+  .cell11 h1 {
+    color: var(--text-color);
     font-family: Playfair Display;
-    font-size: 50px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: 67px;
     letter-spacing: 3px;
     margin: 0;
-    padding: 0;
+    padding-left: 80px;
+  }
+
+  .cell12 {
+    grid-column-start: 1;
+    grid-row-start: 2;
   }
   
-  .hero-text h2 {
-    color: #3F4042;
+  .cell12 h2 {
+    color: var(--text-color);
     font-family: Playfair Display;
-    font-size: 70px;
+    font-size:3rem;
     font-style: normal;
     font-weight: 700;
     line-height: 93px;
     letter-spacing: 4.2px;
     margin: 0;
-    padding: 0;
+    padding-left: 80px;
   }
   
-  .hero-text p.-separator {
+  .cell12 p.-separator {
     margin-top: 0;
+    padding-left: 80px;
   }
   
-  .hero-text p {
-    color: #3F4042;
+  .cell14 {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    padding-left: 80px;
+  }
+
+  .cell14 p {
+    color: var(--text-color);
     font-family: Avenir;
-    font-size: 18px;
+    font: size 1rem;
     font-style: normal;
     font-weight: 350;
     line-height: 26.568px;
     letter-spacing: 1.08px;
+    margin: 0;
   }
   
-  .hero-text p.-actions {
-    padding-top: 66px;
+  .cell15 {
+    grid-column-start: 1;
+    grid-row-start: 4;
+  }
+
+  .cell15 p.-actions {
+    padding-left: 80px;
   }
   
-  .hero-text .button {
+  .cell15 .button {
     border: 2px solid #C08D5D;
     padding: 17px 15px;
     color: #3F4042;
   }
   
-  section.logo {
-    height: 0;
-    line-height: 0;
+  .cell21 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
   }
   
-  .hero-image {
-    width: 50%;
-    margin-left: 50%;
-    display: inline-block;
-    height: 0;
-    position: relative;
+  .cell21 img {
+    width: 100%;
+    margin-top: 0;
   }
-  
-  .hero-image img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    right: -17%;
-    margin-top: -15%;
-    width: 120%;
-  }
+
+  .footer {
+    height: 4rem;
+    position:relative;
+    left:7,25rem;
+    width: 75.5rem;
+    background: rgba(192, 141, 93, 0.20);
+    filter: blur(50px);
+    z-index: 0;
+ }
