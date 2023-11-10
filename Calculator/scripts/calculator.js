@@ -33,7 +33,7 @@ let binaryOp = (a, op, b) => {
     return result + "";
 }
 
-var makeCalculator = function () {
+let makeCalculator = function() {
     var prevValue = "";
     var curOperation = Operations.NONE;
     var curValue = "0"
@@ -46,51 +46,66 @@ var makeCalculator = function () {
         document.getElementById("clr").textContent = curValue == "0" ? "C" : "CE";
     }
 
+    function doProcessDigit(digit) {
+        if (!valueChanged || curValue == "0")
+            curValue =  digit != '.' ? digit : "0.";
+        else
+            curValue += digit;
+
+        if (curOperation == Operations.EQ) {
+            curOperation = Operations.NONE;
+            prevValue = "";
+        }
+
+        valueChanged = true;
+        updateView();
+    }        
+
+    function doProcessEqual() {
+        if (curOperation != Operations.NONE && curOperation != Operations.EQ) {
+            var newValue = binaryOp(prevValue, curOperation, curValue);
+            prevValue += curOperation + curValue;
+            curOperation = Operations.EQ;
+            curValue = newValue;
+            valueChanged = false;
+        }
+    }
+
+    function doProcessUnaryOp(operation) {
+        prevValue = operation + "(" + curValue + ")";
+        curValue = unaryOp(curValue, operation);
+        curOperation = Operations.EQ;
+        valueChanged = false;
+    }
+    
+    function doProcessOpDefault(operation) {
+        if (valueChanged && curOperation != Operations.NONE) {
+            curValue = binaryOp(prevValue, curOperation, curValue);
+            prevValue = curValue;
+            valueChanged = false;
+        }
+        else if (curOperation == Operations.NONE || curOperation == Operations.EQ) {
+            prevValue = curValue;
+            valueChanged = false;
+        }
+
+        curOperation = operation;
+    }
+
     return {
         processDigit: function(digit) {
-            if (!valueChanged || curValue == "0")
-                curValue =  digit != '.' ? digit : "0.";
-            else
-                curValue += digit;
-        
-            if (curOperation == Operations.EQ) {
-                curOperation = Operations.NONE;
-                prevValue = "";
-            }
-        
-            valueChanged = true;
-            updateView();        
+           doProcessDigit(digit);
         }, 
         processOperation: function(operation) {
             switch (operation) {
-            case Operations.EQ:
-                if (curOperation != Operations.NONE && curOperation != Operations.EQ) {
-                    var newValue = binaryOp(prevValue, curOperation, curValue);
-                    prevValue += curOperation + curValue;
-                    curOperation = operation;
-                    curValue = newValue;
-                    valueChanged = false;
-                }
-                break;
+            case Operations.EQ: 
+                doProcessEqual(); break;
             case Operations.SQRT: 
-                prevValue = operation + "(" + curValue + ")";
-                curValue = unaryOp(curValue, operation);
-                curOperation = Operations.EQ;
-                valueChanged = false;
+                doProcessUnaryOp(operation); break;
+            case Operations.NONE:
                 break;
-            case Operations.NONE: break;
             default:
-                if (valueChanged && curOperation != Operations.NONE) {
-                    curValue = binaryOp(prevValue, curOperation, curValue);
-                    prevValue = curValue;
-                    valueChanged = false;
-                }
-                else if (curOperation == Operations.NONE || curOperation == Operations.EQ) {
-                    prevValue = curValue;
-                    valueChanged = false;
-                }
-        
-                curOperation = operation;
+                doProcessOpDefault(operation);
             }
             updateView();
         },
@@ -110,7 +125,7 @@ var makeCalculator = function () {
         },
         processDecimal: function() {
             if (curValue.indexOf(".") < 0 || !valueChanged) {
-                onDigit('.');
+                doProcessDigit('.');
             }
         },
         processClear: function() {
@@ -123,27 +138,27 @@ var makeCalculator = function () {
             curValue = "0";
             updateView();
         }
-    }
+    };
 };
 
-var calculatorObject = makeCalculator();
+let calculatorObject = makeCalculator();
 
-let onDigit = digit => {
+var onDigit = digit => {
     calculatorObject.processDigit(digit);
 }
 
-let onOperation = operation => {
+var onOperation = operation => {
     calculatorObject.processOperation(operation);
 }
 
-let onBackspace = () => {
+var onBackspace = () => {
     calculatorObject.processBackspace();
 }
 
-let onDecimal = () => {
+var onDecimal = () => {
     calculatorObject.processDecimal();
 }
 
-let onClear = () => {
+var onClear = () => {
     calculatorObject.processClear();
 }
