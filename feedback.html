@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Форма обратной связи</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
+<link href="CSS/feedback.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrap">
+	<h1>Обратная связь</h1>
+	<form name="feedback" method="POST">
+		<ul class="form-list">
+			<li>
+				<label>Имя:</label>
+				<div>
+					<input class="form-control" type="text" name="firstname" maxlength="30" value="" required>
+				</div>
+				<span class="error"></span>
+			</li>
+			<li>
+				<label>Фамилия:</label>
+				<div>
+					<input class="form-control" type="text" name="lastname" maxlength="30" value="" required>
+				</div>
+				<span class="error"></span>
+			</li>
+			<li>
+				<label>Электронная почта:</label>
+				<div>
+					<input class="form-control" type="mail" name="usermail" placeholder="user@domain.ru" maxlength="50" value="" required>
+				</div>
+				<span class="error"></span>
+			</li>
+			<li>
+				<label>Номер телефона:</label>
+				<div>
+					<input class="form-control" type="tel" name="userphone" placeholder="+X(XXX)XXX-XX-XX" maxlength="18" value="">
+				</div>
+				<span class="error"></span>
+			</li>
+			<li>
+				<label>Текст сообщения:</label>
+				<div>
+					<textarea class="form-control" name="textmess" required></textarea>
+				</div>
+				<span class="error"></span>
+			</li>
+			<li>
+				<label></label>
+				<div>
+					<button id="send_mess" type="submit">Отправить</button>
+				</div>
+			</li>
+		</ul>
+	</form>
+</div>
+
+<script src="scripts/feedback.js"></script>
+</body>
+</html>
