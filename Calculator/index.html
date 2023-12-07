@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Calculator</title>
+         <script src="scripts/calculator.js"></script>
+         <link rel="stylesheet" type="text/css" href="CSS/style.css">
+     </head>
+     <body>
+        <form class="calculator" name="calc">
+            <input class="expression" type="text" name="expr" readonly="">
+            <input class="value" type="text" name="txt" value="0" readonly="">
+            <span class="num" id="clr" onclick="onClear()">C</span>
+            <span class="num" onclick="onOperation(Operations.POW)"><p>X<sup><sup>y</sup></sup></p></span>
+            <span class="num" onclick="onOperation(Operations.SQRT)">&radic;</span>
+            <span class="num" onclick="onOperation(Operations.DIV)">&divide;</span>
+            <span class="num" onclick="onDigit('7')">7</span>
+            <span class="num" onclick="onDigit('8')">8</span>
+            <span class="num" onclick="onDigit('9')">9</span>
+            <span class="num" onclick="onOperation(Operations.MUL)">x</span>
+            <span class="num" onclick="onDigit('4')">4</span>
+            <span class="num" onclick="onDigit('5')">5</span>
+            <span class="num" onclick="onDigit('6')">6</span>
+            <span class="num" onclick="onOperation(Operations.SUB)">-</span>
+            <span class="num" onclick="onDigit('1')">1</span>
+            <span class="num" onclick="onDigit('2')">2</span>
+            <span class="num" onclick="onDigit('3')">3</span>
+            <span class="num" onclick="onOperation(Operations.ADD)">&plus;</span>
+            <span class="num" onclick="onDigit('0')">0</span>
+            <span class="num" onclick="onDecimal()">.</span>
+            <span class="num" onclick="onBackspace()">&lArr;</span>
+            <span class="num" onclick="onOperation(Operations.EQ)">=</span>
+        </form>
+    </body>
+</html>
