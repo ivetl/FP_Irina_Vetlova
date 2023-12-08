@@ -2,8 +2,6 @@ const apiKey = "577b3bd2eec54e5a84a1ae825e746783";
 
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=`;
 
-const imgUrl = `http://www.splashbase.co/api`
-
 const searchInput = document.querySelector(".search-box input");
 
 const searchButton = document.querySelector(".search-box button");
